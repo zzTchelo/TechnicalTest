@@ -103,13 +103,42 @@ namespace BackendMoura.Repositories
 
         public async Task<bool> putPessoa(Pessoa pessoa)
         {
-            return false;
+            using (_connection) 
+            {
+                await _connection.OpenAsync();
+                using (_command)
+                {
+                    _command.CommandText = "UPDATE Pessoa SET Nome = @Nome, DataNascimento = @DataNascimento, " +
+                                            "Inativo = @Inativo, Nacionalidade = @Nacionalidade, RG = @RG, " +
+                                            "Passaporte = @Passaporte WHERE Codigo = @Codigo";
+
+                    _command.Parameters.AddWithValue("@Nome", pessoa.Nome);
+                    _command.Parameters.AddWithValue("@DataNascimento", pessoa.DataNascimento);
+                    _command.Parameters.AddWithValue("@Inativo", pessoa.Inativo);
+                    _command.Parameters.AddWithValue("@Nacionalidade", pessoa.Nacionalidade);
+                    _command.Parameters.AddWithValue("@RG", pessoa.RG);
+                    _command.Parameters.AddWithValue("@Passaporte", pessoa.Passaporte);
+                    _command.Parameters.AddWithValue("@Codigo", pessoa.Codigo);
+                    int rowsAffected = await _command.ExecuteNonQueryAsync();
+                    return rowsAffected > 0;
+                }
+            }
         }
 
 
         public async Task<bool> deletePessoa(int id)
         {
-            return false;
+            using (_connection)
+            {
+                await _connection.OpenAsync();
+                using (_command)
+                {
+                    _command.CommandText = "DELETE FROM Pessoa WHERE Codigo = @Codigo";
+                    _command.Parameters.AddWithValue("@Codigo", id);
+                    int rowsAffected = await _command.ExecuteNonQueryAsync();
+                    return rowsAffected > 0;
+                }
+            }
         }
 
     }

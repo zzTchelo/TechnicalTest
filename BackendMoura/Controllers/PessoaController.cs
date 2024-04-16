@@ -52,7 +52,7 @@ namespace BackendMoura.Controllers
                     return BadRequest(ModelState);
 
                 if (await _repositorioPessoa.postPessoa(pessoa))
-                    return Ok("Pessoa cadastrada com sucesso!!!");
+                    return Ok();
 
                 return BadRequest();
             }
@@ -85,8 +85,19 @@ namespace BackendMoura.Controllers
         }
 
         // DELETE: api/Pessoa/5
-        public void Delete(int id)
+        public async Task<IHttpActionResult> Delete(int id)
         {
+            try
+            {
+                if (await _repositorioPessoa.deletePessoa(id))
+                    return Ok();
+
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
     }
 }
