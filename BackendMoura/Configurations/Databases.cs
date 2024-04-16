@@ -10,7 +10,7 @@ namespace BackendMoura.Configurations
     {
         public static String getStringConnection()
         {
-            return ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            return ConfigurationManager.ConnectionStrings["PessoaConnection"].ConnectionString;
         }
     }
 }

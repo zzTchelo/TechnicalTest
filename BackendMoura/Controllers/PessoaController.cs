@@ -1,34 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using BackendMoura.Repositories;
+using System.Threading.Tasks;
+using BackendMoura.Models;
 
 namespace BackendMoura.Controllers
 {
     public class PessoaController : ApiController
     {
+        RepositorioPessoa _repositorioPessoa;
+        public PessoaController() {
+            // _repositorioPessoa = new RepositorioPessoa(Configurations.Databases.getStringConnection());
+            _repositorioPessoa = new RepositorioPessoa("Server=.\\SQLEXPRESS;Database=tecnicoMoura;Trusted_Connection=True;");
+        }
         // GET: api/Pessoa
-        public IEnumerable<string> Get()
+        public async Task<IHttpActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(await _repositorioPessoa.getPessoas());
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         // GET: api/Pessoa/5
-        public string Get(int id)
+        public async Task<IHttpActionResult> Get(int id)
         {
-            return "value";
+            try
+            {
+                Pessoa pessoa = await _repositorioPessoa.getPessoaById(id);
+                if(pessoa.Codigo == 0)
+                    return NotFound();
+
+                return Ok(pessoa);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         // POST: api/Pessoa
-        public void Post([FromBody]string value)
+        public async Task<IHttpActionResult> Post([FromBody]Pessoa pessoa)
         {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                if (await _repositorioPessoa.postPessoa(pessoa))
+                    return Ok("Pessoa cadastrada com sucesso!!!");
+
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         // PUT: api/Pessoa/5
-        public void Put(int id, [FromBody]string value)
+        public async Task<IHttpActionResult> Put(int id, [FromBody]Pessoa pessoa)
         {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                if (pessoa.Codigo != id)
+                    return BadRequest("Objeto não relacionado, Ids diferentes");
+
+                if (await _repositorioPessoa.putPessoa(pessoa))
+                    return Ok();
+
+                return NotFound();
+            }
+            catch (Exception ex) 
+            {
+                return InternalServerError(ex);
+            }
         }
 
         // DELETE: api/Pessoa/5
