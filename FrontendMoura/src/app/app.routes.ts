@@ -3,6 +3,7 @@ import { ListarTodosComponent } from './Application/Main/listar-todos/listar-tod
 import { PesquisarComponent } from './Application/Main/pesquisar/pesquisar.component';
 
 export const routes: Routes = [
+  {path: '', redirectTo: 'ListarTodos', pathMatch:'full'},
   {path: "ListarTodos", component: ListarTodosComponent},
   {path: "Pesquisar",   component: PesquisarComponent},
   //{path: "ListarTodos", component: ListarTodosComponent},
@@ -10,5 +11,5 @@ export const routes: Routes = [
   //{path: "ListarTodos", component: ListarTodosComponent},
   //{path: "ListarTodos", component: ListarTodosComponent},
   //{path: "ListarTodos", component: ListarTodosComponent},
-  {path: '', redirectTo: 'ListarTodos', pathMatch:'full'}
+  {path: '**', redirectTo: 'ListarTodos', pathMatch:'full'},
 ];
