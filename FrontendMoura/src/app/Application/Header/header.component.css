@@ -1,7 +1,9 @@
 #main-header{
-  width: 100%;
+  width: 60%;
   background-color: #ffdead;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 10px auto;
+  border-radius: 20px;
 }
 
 #main-header ul{
