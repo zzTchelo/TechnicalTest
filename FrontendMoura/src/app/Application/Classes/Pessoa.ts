@@ -1,21 +1,29 @@
 import { IPessoa } from "../Interfaces/IPessoa";
 
 export class Pessoa implements IPessoa {
-  codigo: number;
-  nome: string;
-  dataNascimento: Date;
-  inativo: boolean;
-  nacionalidade: number;
-  rg: string;
-  passaporte: string;
+  Codigo: number;
+  Nome: string;
+  DataNascimento: Date;
+  Inativo: boolean;
+  Nacionalidade: number;
+  RG: string;
+  Passaporte: string;
 
-  constructor(codigo: number, nome: string, dataNascimento: Date, inativo: boolean, nacionalidade: number, rg: string, passaporte: string) {
-    this.codigo = codigo;
-    this.nome = nome;
-    this.dataNascimento = dataNascimento;
-    this.inativo = inativo;
-    this.nacionalidade = nacionalidade;
-    this.rg = rg;
-    this.passaporte = passaporte;
+  constructor(
+    Codigo: number,
+    Nome: string,
+    DataNascimento: Date,
+    Inativo: boolean,
+    Nacionalidade: number,
+    RG: string,
+    Passaporte: string
+  ) {
+    this.Codigo = Codigo;
+    this.Nome = Nome;
+    this.DataNascimento = DataNascimento;
+    this.Inativo = Inativo;
+    this.Nacionalidade = Nacionalidade;
+    this.RG = RG;
+    this.Passaporte = Passaporte;
   }
 }

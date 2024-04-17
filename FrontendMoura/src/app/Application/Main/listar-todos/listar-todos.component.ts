@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Pessoa } from '../../Classes/Pessoa';
 import { PessoaService } from '../../Services/pessoa.service';
 import { HttpClientModule } from '@angular/common/http';
 import { take } from 'rxjs';
+import { NgFor } from '@angular/common';
+import { IPessoa } from '../../Interfaces/IPessoa';
 
 @Component({
   selector: 'app-listar-todos',
   standalone: true,
-  imports: [ HttpClientModule ],
+  imports: [ HttpClientModule, NgFor ],
   providers: [ PessoaService ],
   templateUrl: './listar-todos.component.html',
   styleUrl: './listar-todos.component.css'
 })
 export class ListarTodosComponent implements OnInit{
 
-  private pessoas : Pessoa | null = null;
+  public pessoas: any = {};
 
     constructor(
       private service : PessoaService
@@ -24,14 +25,12 @@ export class ListarTodosComponent implements OnInit{
       this.getPessoas();
     }
 
-    getPessoas(): void {
+    getPessoas() {
       this.service.getPessoas()
         .pipe(take(1))
-        .subscribe(pessoas => {
-          this.pessoas = pessoas;
-          console.log(this.pessoas); // Exibir no console a lista de pessoas
+        .subscribe(pessoa => {
+          this.pessoas = pessoa;
+          console.log(pessoa); // Aqui você terá acesso à lista completa de pessoas
         });
     }
-
-
 }

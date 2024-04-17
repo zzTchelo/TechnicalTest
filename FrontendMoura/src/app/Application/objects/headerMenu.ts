@@ -3,5 +3,5 @@ export const Menu: { name: string, link: string }[] = [
   { name: 'Pesquisar', link: '/Pesquisar' },
   { name: 'Cadastrar', link: '' },
   { name: 'Alterar', link: ''},
-  { name: 'Delete', link: '' }
+  { name: 'Deletar', link: '' }
 ];

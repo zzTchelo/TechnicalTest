@@ -1,0 +1,36 @@
+#main-lista-pessoas{
+  width: 90%;
+  margin: 20px auto;
+}
+
+#main-lista-pessoas p{
+  padding-left: 10px;
+  display: inline;
+  font-size: xx-large;
+  border-left: 5px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #7e7e7e;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+tr:hover {
+  background-color: #ccc;
+}

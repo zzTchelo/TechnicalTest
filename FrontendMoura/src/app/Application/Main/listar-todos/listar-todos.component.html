@@ -1,1 +1,29 @@
-<p>listar-todos works!</p>
+<div id="main-lista-pessoas">
+  <p>Lista de pessoas cadastradas</p>
+
+  <table>
+    <thead>
+        <tr>
+          <th>Codigo</th>
+          <th>Nome</th>
+          <th>Data de nascimento</th>
+          <th>Status</th>
+          <th>Nacionalidade</th>
+          <th>RG</th>
+          <th>Passaporte</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pessoa of pessoas">
+          <td>{{ pessoa.Codigo }}</td>
+          <td>{{ pessoa.Nome }}</td>
+          <td>{{ pessoa.DataNascimento }}</td>
+          <td>{{ pessoa.Inativo ? 'Inativo' : 'Ativo' }}</td>
+          <td>{{ pessoa.Nacionalidade === 1 ? 'BR' : 'Outros' }}</td>
+          <td>{{ pessoa.RG }}</td>
+          <td>{{ pessoa.Passaporte }}</td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
