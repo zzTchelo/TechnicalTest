@@ -4,11 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { take } from 'rxjs';
 import { NgFor } from '@angular/common';
 import { IPessoa } from '../../Interfaces/IPessoa';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-listar-todos',
   standalone: true,
-  imports: [ HttpClientModule, NgFor ],
+  imports: [ HttpClientModule, NgFor, RouterLink ],
   providers: [ PessoaService ],
   templateUrl: './listar-todos.component.html',
   styleUrl: './listar-todos.component.css'
@@ -30,7 +31,7 @@ export class ListarTodosComponent implements OnInit{
         .pipe(take(1))
         .subscribe(pessoa => {
           this.pessoas = pessoa;
-          console.log(pessoa); // Aqui você terá acesso à lista completa de pessoas
+          console.log(pessoa);
         });
     }
 }

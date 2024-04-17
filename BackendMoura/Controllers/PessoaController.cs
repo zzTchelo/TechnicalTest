@@ -3,9 +3,12 @@ using System.Web.Http;
 using BackendMoura.Repositories;
 using System.Threading.Tasks;
 using BackendMoura.Models;
+using System.Web.Http.Cors;
 
 namespace BackendMoura.Controllers
 {
+    
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PessoaController : ApiController
     {
         RepositorioPessoa _repositorioPessoa;

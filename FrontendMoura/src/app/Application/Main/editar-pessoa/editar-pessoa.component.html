@@ -1,0 +1,39 @@
+<p>editar-pessoa works!</p>
+
+<div id="main-forms">
+  <form [formGroup]="form" *ngIf="form">
+    <label for="codigo">Codigo</label>
+    <input type="text" id="nome" formControlName="codigo" readonly>
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" formControlName="nome">
+
+    <label for="dataNascimento">Data de Nascimento</label>
+    <input type="date" id="dataNascimento" formControlName="dataNascimento">
+
+    <label>Status</label>
+    <label for="ativo">Ativo</label>
+    <input type="radio" id="ativo" name="inativo" value="1" formControlName="inativo">
+    <label for="inativo">Inativo</label>
+    <input type="radio" id="inativo" name="inativo" value="0" formControlName="inativo">
+
+    <label for="nacionalidade">Nacionalidade</label>
+    <select id="nacionalidade" formControlName="nacionalidade">
+      <option value="1">1 - Brasil</option>
+      <option value="2">2 - Outros</option>
+    </select>
+
+    <div *ngIf="form.get('nacionalidade')?.value != '1'">
+      <label for="passaporte">Passaporte</label>
+      <input type="text" id="passaporte" formControlName="passaporte">
+    </div>
+
+    <div *ngIf="form.get('nacionalidade')?.value == '1'">
+      <label for="rg">RG</label>
+      <input type="text" id="rg" formControlName="rg">
+    </div>
+
+    <button [disabled]="!form.valid" (click)="AlterarPessoa()" [ngClass]="enableButton()">Salvar</button>
+    <button type="button" (click)="excluirPessoa()">Excluir</button>
+  </form>
+</div>

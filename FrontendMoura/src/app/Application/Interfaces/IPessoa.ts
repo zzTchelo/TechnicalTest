@@ -1,9 +1,9 @@
 export interface IPessoa {
-  Codigo: number;
-  Nome: string;
-  DataNascimento: Date;
-  Inativo: boolean;
-  Nacionalidade: number;
-  RG: string;
-  Passaporte: string;
+  codigo: number;
+  nome: string;
+  dataNascimento: Date;
+  inativo: boolean;
+  nacionalidade: number;
+  rg: string;
+  passaporte: string;
 }

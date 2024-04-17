@@ -11,6 +11,7 @@
           <th>Nacionalidade</th>
           <th>RG</th>
           <th>Passaporte</th>
+          <th>Detalhes</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
           <td>{{ pessoa.Nacionalidade === 1 ? 'BR' : 'Outros' }}</td>
           <td>{{ pessoa.RG }}</td>
           <td>{{ pessoa.Passaporte }}</td>
+          <td><button routerLink="/Alterar/{{ pessoa.Codigo }}">Detalhes</button></td>
         </tr>
     </tbody>
   </table>
