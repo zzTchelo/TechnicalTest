@@ -1,39 +1,42 @@
-<p>editar-pessoa works!</p>
-
 <div id="main-forms">
   <form [formGroup]="form" *ngIf="form">
-    <label for="codigo">Codigo</label>
+    <label for="codigo" class="solo_label">Codigo</label>
     <input type="text" id="nome" formControlName="codigo" readonly>
 
-    <label for="nome">Nome</label>
+    <label for="nome" class="solo_label">Nome</label>
     <input type="text" id="nome" formControlName="nome">
 
-    <label for="dataNascimento">Data de Nascimento</label>
+    <label for="dataNascimento" class="solo_label">Data de Nascimento</label>
     <input type="date" id="dataNascimento" formControlName="dataNascimento">
 
-    <label>Status</label>
-    <label for="ativo">Ativo</label>
-    <input type="radio" id="ativo" name="inativo" value="1" formControlName="inativo">
-    <label for="inativo">Inativo</label>
-    <input type="radio" id="inativo" name="inativo" value="0" formControlName="inativo">
+    <label for="status" class="solo_label">Status</label>
+    <div class="radio-button">
+      <input type="radio" id="ativo" name="inativo" value="1" formControlName="inativo">
+      <label for="ativo">Ativo</label>
+      <input type="radio" id="inativo" name="inativo" value="0" formControlName="inativo">
+      <label for="inativo">Inativo</label>
+    </div>
 
-    <label for="nacionalidade">Nacionalidade</label>
+    <label for="nacionalidade" class="solo_label">Nacionalidade</label>
     <select id="nacionalidade" formControlName="nacionalidade">
       <option value="1">1 - Brasil</option>
       <option value="2">2 - Outros</option>
     </select>
 
     <div *ngIf="form.get('nacionalidade')?.value != '1'">
-      <label for="passaporte">Passaporte</label>
+      <label for="passaporte" class="solo_label">Passaporte</label>
       <input type="text" id="passaporte" formControlName="passaporte">
     </div>
 
     <div *ngIf="form.get('nacionalidade')?.value == '1'">
-      <label for="rg">RG</label>
+      <label for="rg" class="solo_label">RG</label>
       <input type="text" id="rg" formControlName="rg">
     </div>
 
-    <button [disabled]="!form.valid" (click)="AlterarPessoa()" [ngClass]="enableButton()">Salvar</button>
-    <button type="button" (click)="excluirPessoa()">Excluir</button>
+    <div class="botoes">
+      <button [disabled]="!form.valid" (click)="AlterarPessoa()" [ngClass]="enableButton()">Salvar</button>
+      <button type="button" (click)="excluirPessoa()">Excluir</button>
+    </div>
+
   </form>
 </div>

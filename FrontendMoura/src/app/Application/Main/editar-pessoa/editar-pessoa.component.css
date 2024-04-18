@@ -1,0 +1,64 @@
+#main-forms{
+  margin: 50px auto;
+  width: 50%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+}
+
+#main-forms label{
+  font-size: x-large;
+  margin: 10px 0px;
+}
+
+#main-forms input{
+  font-size: x-large;
+  margin: 10px 0px;
+  outline: none;
+
+  font: "Lato", Arial, sans-serif;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  border: 1px solid #ccc;
+  padding: 7px 14px 9px;
+  transition: 0.4s;
+}
+
+#main-forms select{
+  border: 0px;
+  background-color: rgb(16, 98, 146);
+  color: white;
+  outline: none;
+  padding: 10px 0px;
+  font-size: x-large;
+  width: 100%;
+}
+
+.solo_label{
+  display: block;
+}
+
+.radio-button{
+  gap: 10px;
+  display: flex;
+}
+
+#main-forms button{
+  background-color: #39f;
+  padding: 0.5em 1.3em;
+  color: #fff;
+  font-size: 1.2em;
+  border: none;
+  cursor: pointer;
+}
+
+#main-forms button:hover{
+  filter: brightness(1.1);
+}
+
+.botoes{
+  display: flex;
+  justify-content: right;
+}

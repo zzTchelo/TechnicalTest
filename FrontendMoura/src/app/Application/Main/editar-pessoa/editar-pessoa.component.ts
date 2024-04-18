@@ -66,14 +66,16 @@ export class EditarPessoaComponent {
       this.pessoaAtt.inativo = parseInt(this.pessoaAtt.inativo) == 0 ? true : false
       this.service.putPessoa(this.form.value).subscribe(() => {
         this.router.navigate(['ListarTodos']);
-        console.log('Pessoa alterada com sucesso!');
        }
      );
     }
   }
 
   excluirPessoa(){
-
+    console.log(this.pessoa.Codigo);
+    this.service.deletePessoa(this.pessoa.Codigo).subscribe(() => {
+      this.router.navigate(['ListarTodos']);
+    });
   }
 
   enableButton(): string {
