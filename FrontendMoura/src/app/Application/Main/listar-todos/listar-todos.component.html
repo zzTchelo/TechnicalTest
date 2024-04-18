@@ -1,4 +1,8 @@
 <div id="main-lista-pessoas">
+  <div class="buscar-pessoas">
+    <input type="search" class="filtro" placeholder="Pesquisar nome..." autofocus [(ngModel)]="filter" (keyup)="procurarPessoas()">
+  </div>
+
   <p>Lista de pessoas cadastradas</p>
 
   <table>
@@ -18,12 +22,16 @@
         <tr *ngFor="let pessoa of pessoas">
           <td>{{ pessoa.Codigo }}</td>
           <td>{{ pessoa.Nome }}</td>
-          <td>{{ pessoa.DataNascimento }}</td>
+          <td>{{ pessoa.DataNascimento | date : 'dd/MM/yyyy' }}</td>
           <td>{{ pessoa.Inativo ? 'Inativo' : 'Ativo' }}</td>
           <td>{{ pessoa.Nacionalidade === 1 ? 'BR' : 'Outros' }}</td>
           <td>{{ pessoa.RG }}</td>
           <td>{{ pessoa.Passaporte }}</td>
-          <td><button routerLink="/Alterar/{{ pessoa.Codigo }}" class="detail-button"><i class="fa-solid fa-magnifying-glass-plus"></i></button></td>
+          <td>
+            <div routerLink="/Alterar/{{ pessoa.Codigo }}" class="detail-button">
+              Clique aqui!
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div></td>
         </tr>
     </tbody>
   </table>

@@ -27,7 +27,7 @@
 
     <div *ngIf="form.get('nacionalidade')?.value == '1'">
       <label for="rg" class="solo_label">RG</label>
-      <input type="text" id="rg" formControlName="rg">
+      <input type="text" mask="00.000.000-0" id="rg" formControlName="rg">
     </div>
 
     <div class="botoes">

@@ -10,10 +10,9 @@ CREATE TABLE Pessoa (
     Passaporte VARCHAR(20)
 );
 
-select * from Pessoa;
-
-
 INSERT INTO Pessoa (Nome, DataNascimento, Inativo, Nacionalidade, RG, Passaporte)
 VALUES 
-('João', '1990-05-15', 0, 1, '123456', 'AB123456'),
+('Joï¿½o', '1990-05-15', 0, 1, '123456', 'AB123456'),
 ('Maria', '1985-08-20', 1, 2, '987654', 'CD987654');
+
+select * from Pessoa;

@@ -4,11 +4,12 @@ import { PessoaService } from '../../Services/pessoa.service';
 import { Router } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 @Component({
   selector: 'app-cadastrar-pessoa',
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule, NgClass, NgIf, HttpClientModule ],
+  imports: [ FormsModule, ReactiveFormsModule, NgClass, NgIf, HttpClientModule, NgxMaskDirective, NgxMaskPipe ],
   providers: [ PessoaService ],
   templateUrl: './cadastrar-pessoa.component.html',
   styleUrl: './cadastrar-pessoa.component.css'

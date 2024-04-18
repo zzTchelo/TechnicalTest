@@ -4,11 +4,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PessoaService } from '../../Services/pessoa.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 @Component({
   selector: 'app-editar-pessoa',
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule, NgClass, NgIf, HttpClientModule ],
+  imports: [ FormsModule, ReactiveFormsModule, NgClass, NgIf, HttpClientModule, NgxMaskDirective, NgxMaskPipe ],
   providers: [ PessoaService ],
   templateUrl: './editar-pessoa.component.html',
   styleUrl: './editar-pessoa.component.css'
