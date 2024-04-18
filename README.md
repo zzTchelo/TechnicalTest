@@ -51,8 +51,8 @@ This is a simple CRUD (Create, Read, Update, Delete) API for managing person inf
 	}
 
 
-### 5. Delete Vehicle
-- **Description:** Delete a specific vehicle from the system.
+### 5. Delete Person
+- **Description:** Delete a specific person from the system.
 
 ## Getting Started
 1. Clone the repository to your local machine:
