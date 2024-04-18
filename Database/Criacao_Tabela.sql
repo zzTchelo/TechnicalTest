@@ -1,3 +1,4 @@
+CREATE DATABASE tecnicoMoura;
 use tecnicoMoura;
 
 CREATE TABLE Pessoa (
@@ -12,7 +13,7 @@ CREATE TABLE Pessoa (
 
 INSERT INTO Pessoa (Nome, DataNascimento, Inativo, Nacionalidade, RG, Passaporte)
 VALUES 
-('Jo�o', '1990-05-15', 0, 1, '123456', 'AB123456'),
+('Joao', '1990-05-15', 0, 1, '123456', 'AB123456'),
 ('Maria', '1985-08-20', 1, 2, '987654', 'CD987654');
 
 select * from Pessoa;
